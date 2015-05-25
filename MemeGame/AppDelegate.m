@@ -7,8 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "TimelineTableViewController.h"
+#import "testViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
+
+@property (nonatomic) UINavigationController *navigationController;
+
+@property(nonatomic) UITabBarController *tabBarController;
 
 @end
 
@@ -16,20 +23,55 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+     //Override point for customization after application launch.
+    
+     //[Optional] Power your app with Local Datastore. For more info, go to
+   // https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"keys" ofType:@"plist"]];
+    
+    NSString *applicationId = [dictionary objectForKey:@"parseApplicationId"];
+    NSString *clientKey = [dictionary objectForKey:@"parseClientKey"];
+
+    // Initialize Parse.
+    [Parse setApplicationId:applicationId
+                  clientKey:clientKey];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    TimelineTableViewController *table = [[TimelineTableViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:table];
+    
+    testViewController *test = [[testViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:test];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    NSArray *controllers = [[NSArray alloc] initWithObjects:nav, nav2, nil];
+    self.tabBarController.viewControllers = controllers;
+
+    self.window.rootViewController = self.tabBarController;
+    
+    UITabBarController *tabBarController = self.tabBarController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    
+    tabBar.barTintColor = [UIColor colorWithRed:50/255 green:50/255 blue:50/255 alpha:0.7];
+    tabBar.tintColor = [UIColor whiteColor];
+    UITabBarItem *tab1 = [tabBar.items objectAtIndex:0];
+    tab1.image = [UIImage imageNamed:@"Home-32"];
+    UITabBarItem *tab2 = [tabBar.items objectAtIndex:1];
+    tab2.image = [UIImage imageNamed:@"Home-32"];
+    tab1.imageInsets = UIEdgeInsetsMake(6, 0, -5, 0);
+    tab2.imageInsets = UIEdgeInsetsMake(6, 0, -5, 0);
+    
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.window makeKeyAndVisible];
-    
-    UIViewController *viewController = [[UIViewController alloc] init];
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    [self.window setRootViewController:navController];
-    
-    
-    [navController setNavigationBarHidden:YES];
     
     return YES;
     
