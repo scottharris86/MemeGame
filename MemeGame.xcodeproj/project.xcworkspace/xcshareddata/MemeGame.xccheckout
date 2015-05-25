@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F0ABDA4C-BA36-4851-AACD-54E408DCB975</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MemeGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5542B2424CDC30AF7310432EF503689C6323AD64</key>
+		<string>github.com:scottharris86/MemeGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MemeGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5542B2424CDC30AF7310432EF503689C6323AD64</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:scottharris86/MemeGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5542B2424CDC30AF7310432EF503689C6323AD64</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5542B2424CDC30AF7310432EF503689C6323AD64</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MemeGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>
